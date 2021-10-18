@@ -102,7 +102,7 @@ impl Benchmark {
         let Self(world) = self;
         let mut encoded = Vec::new();
         serialize(
-            &world,
+            world,
             &mut SerContext,
             &mut ron::Serializer::new(&mut encoded, None, false).unwrap(),
         )

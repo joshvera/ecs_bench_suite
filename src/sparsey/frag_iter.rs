@@ -1,5 +1,3 @@
-use std::borrow::Borrow;
-
 use sparsey::prelude::*;
 
 macro_rules! create_entities {
