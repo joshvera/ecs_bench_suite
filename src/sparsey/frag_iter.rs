@@ -26,8 +26,8 @@ impl Benchmark {
     pub fn run(&mut self) {
         let mut data = self.0.borrow::<CompMut<Data>>();
 
-        for mut data in (&mut data).iter() {
+        (&mut data).iter().for_each(|mut data| {
             data.0 *= 2.0;
-        }
+        });
     }
 }
