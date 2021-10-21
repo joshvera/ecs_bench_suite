@@ -35,6 +35,6 @@ impl Benchmark {
             .iter()
             .for_each(|(mut position, velocity)| {
                 position.0 += velocity.0;
-            })
+            });
     }
 }
