@@ -5,7 +5,7 @@ authors = [
     "Thomas Gillen <thomas.gillen@googlemail.com>",
     "Tudor Lechintan <lechintantudor02@gmail.com>",
 ]
-edition = "2018"
+edition = "2021"
 
 [dependencies]
 bevy_ecs = "0.5"
@@ -17,9 +17,9 @@ legion = "0.4"
 planck_ecs = { version = "1.2", features = ["parallel"] }
 rayon = "1.5"
 ron = "0.6"
-serde = { version = "1.0", features = ["derive"] }
-shipyard = "0.5.0"
-sparsey = "0.4"
+serde = { version = "1", features = ["derive"] }
+shipyard = "0.5"
+sparsey = "0.5"
 specs = { version = "0.17", features = ["serde"] }
 specs-derive = "0.4"
 
