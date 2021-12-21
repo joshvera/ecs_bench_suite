@@ -20,7 +20,7 @@ impl Benchmark {
 
     pub fn run(&mut self) {
         for &entity in &self.1 {
-            self.0.append_components(entity, (B(0.0),)).unwrap();
+            self.0.insert_components(entity, (B(0.0),)).unwrap();
         }
 
         for &entity in &self.1 {
