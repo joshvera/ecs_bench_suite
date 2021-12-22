@@ -7,19 +7,19 @@ struct C(f32);
 struct D(f32);
 struct E(f32);
 
-fn swap_ab(mut a: CompMut<A>, mut b: CompMut<B>) {
+fn ab(mut a: CompMut<A>, mut b: CompMut<B>) {
     (&mut a, &mut b).iter().for_each(|(mut a, mut b)| {
         std::mem::swap(&mut a.0, &mut b.0);
     });
 }
 
-fn swap_cd(mut c: CompMut<C>, mut d: CompMut<D>) {
+fn cd(mut c: CompMut<C>, mut d: CompMut<D>) {
     (&mut c, &mut d).iter().for_each(|(mut c, mut d)| {
         std::mem::swap(&mut c.0, &mut d.0);
     });
 }
 
-fn swap_ce(mut c: CompMut<C>, mut e: CompMut<E>) {
+fn ce(mut c: CompMut<C>, mut e: CompMut<E>) {
     (&mut c, &mut e).iter().for_each(|(mut c, mut e)| {
         std::mem::swap(&mut c.0, &mut e.0);
     });
@@ -43,9 +43,9 @@ impl Benchmark {
         world.create_entities((0..10_000).map(|_| (A(0.0), B(0.0), C(0.0), E(0.0))));
 
         let dispatcher = Dispatcher::builder()
-            .add_system(swap_ab.system())
-            .add_system(swap_cd.system())
-            .add_system(swap_ce.system())
+            .add_system(ab.system())
+            .add_system(cd.system())
+            .add_system(ce.system())
             .build();
 
         let thread_pool = ThreadPoolBuilder::new()

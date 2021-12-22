@@ -27,14 +27,10 @@ pub struct Benchmark(World, Resources, Schedule);
 impl Benchmark {
     pub fn new() -> Self {
         let mut world = World::default();
-
-        world.extend((0..10000).map(|_| (A(0.0), B(0.0))));
-
-        world.extend((0..10000).map(|_| (A(0.0), B(0.0), C(0.0))));
-
-        world.extend((0..10000).map(|_| (A(0.0), B(0.0), C(0.0), D(0.0))));
-
-        world.extend((0..10000).map(|_| (A(0.0), B(0.0), C(0.0), E(0.0))));
+        world.extend((0..10_000).map(|_| (A(0.0), B(0.0))));
+        world.extend((0..10_000).map(|_| (A(0.0), B(0.0), C(0.0))));
+        world.extend((0..10_000).map(|_| (A(0.0), B(0.0), C(0.0), D(0.0))));
+        world.extend((0..10_000).map(|_| (A(0.0), B(0.0), C(0.0), E(0.0))));
 
         world.pack(PackOptions::force());
 

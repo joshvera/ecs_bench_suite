@@ -2,18 +2,19 @@ use cgmath::*;
 use specs::prelude::*;
 use specs_derive::*;
 
-#[derive(Copy, Clone, Component)]
+#[derive(Clone, Copy, Component)]
 #[storage(VecStorage)]
 struct Transform(Matrix4<f32>);
-#[derive(Copy, Clone, Component)]
+
+#[derive(Clone, Copy, Component)]
 #[storage(VecStorage)]
 struct Position(Vector3<f32>);
 
-#[derive(Copy, Clone, Component)]
+#[derive(Clone, Copy, Component)]
 #[storage(VecStorage)]
 struct Rotation(Vector3<f32>);
 
-#[derive(Copy, Clone, Component)]
+#[derive(Clone, Copy, Component)]
 #[storage(VecStorage)]
 struct Velocity(Vector3<f32>);
 
@@ -30,7 +31,7 @@ impl Benchmark {
         world.register::<Position>();
         world.register::<Rotation>();
         world.register::<Velocity>();
-        (0..10000).for_each(|_| {
+        (0..10_000).for_each(|_| {
             world
                 .create_entity()
                 .with(Transform(Matrix4::<f32>::from_scale(1.0)))

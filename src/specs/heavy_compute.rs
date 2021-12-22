@@ -3,18 +3,19 @@ use rayon::prelude::*;
 use specs::{prelude::*, ParJoin};
 use specs_derive::*;
 
-#[derive(Copy, Clone, Component)]
+#[derive(Clone, Copy, Component)]
 #[storage(VecStorage)]
 struct Transform(Matrix4<f32>);
-#[derive(Copy, Clone, Component)]
+
+#[derive(Clone, Copy, Component)]
 #[storage(VecStorage)]
 struct Position(Vector3<f32>);
 
-#[derive(Copy, Clone, Component)]
+#[derive(Clone, Copy, Component)]
 #[storage(VecStorage)]
 struct Rotation(Vector3<f32>);
 
-#[derive(Copy, Clone, Component)]
+#[derive(Clone, Copy, Component)]
 #[storage(VecStorage)]
 struct Velocity(Vector3<f32>);
 

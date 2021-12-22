@@ -1,8 +1,10 @@
 use specs::prelude::*;
 use specs_derive::*;
+
 #[derive(Component)]
 #[storage(VecStorage)]
 struct A(f32);
+
 #[derive(Component)]
 #[storage(VecStorage)]
 struct B(f32);
@@ -14,7 +16,7 @@ impl Benchmark {
         let mut world = World::new();
         world.register::<A>();
         world.register::<B>();
-        let entities = (0..10000)
+        let entities = (0..10_000)
             .map(|_| world.create_entity().with(A(0.0)).build())
             .collect();
         Self(world, entities)

@@ -1,16 +1,16 @@
 use cgmath::*;
 use hecs::*;
 
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 struct Transform(Matrix4<f32>);
 
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 struct Position(Vector3<f32>);
 
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 struct Rotation(Vector3<f32>);
 
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 struct Velocity(Vector3<f32>);
 
 pub struct Benchmark(World);

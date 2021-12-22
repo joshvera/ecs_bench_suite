@@ -1,9 +1,10 @@
 use cgmath::*;
 use planck_ecs::*;
 
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 struct Position(Vector3<f32>);
-#[derive(Copy, Clone)]
+
+#[derive(Clone, Copy)]
 struct Velocity(Vector3<f32>);
 
 pub struct Benchmark(Components<Velocity>, Components<Position>);
@@ -13,7 +14,7 @@ impl Benchmark {
         let mut entities = Entities::default();
         let mut position_storage = Components::<Position>::default();
         let mut velocity_storage = Components::<Velocity>::default();
-        (0..10000).for_each(|_| {
+        (0..10_000).for_each(|_| {
             let e = entities.create();
             position_storage.insert(e, Position(Vector3::unit_x()));
             velocity_storage.insert(e, Velocity(Vector3::unit_x()));

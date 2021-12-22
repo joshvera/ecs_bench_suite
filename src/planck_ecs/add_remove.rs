@@ -1,4 +1,5 @@
 use planck_ecs::*;
+
 struct A(f32);
 struct B(f32);
 
@@ -10,7 +11,7 @@ impl Benchmark {
         let mut comp1 = Components::<A>::default();
         let comp2 = Components::<B>::default();
 
-        let entities = (0..10000)
+        let entities = (0..10_000)
             .map(|_| {
                 let e = entities.create();
                 comp1.insert(e, A(0.0));

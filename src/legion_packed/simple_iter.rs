@@ -3,16 +3,16 @@ use legion::*;
 use query::Query;
 use storage::PackOptions;
 
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 struct Transform(Matrix4<f32>);
 
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 struct Position(Vector3<f32>);
 
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 struct Rotation(Vector3<f32>);
 
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 struct Velocity(Vector3<f32>);
 
 pub struct Benchmark(World, Query<(Read<Velocity>, Write<Position>)>);
@@ -27,10 +27,10 @@ impl Benchmark {
 
         world.extend(
             (
-                vec![Transform(Matrix4::from_scale(1.0)); 10000],
-                vec![Position(Vector3::unit_x()); 10000],
-                vec![Rotation(Vector3::unit_x()); 10000],
-                vec![Velocity(Vector3::unit_x()); 10000],
+                vec![Transform(Matrix4::from_scale(1.0)); 10_000],
+                vec![Position(Vector3::unit_x()); 10_000],
+                vec![Rotation(Vector3::unit_x()); 10_000],
+                vec![Velocity(Vector3::unit_x()); 10_000],
             )
                 .into_soa(),
         );

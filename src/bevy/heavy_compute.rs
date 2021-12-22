@@ -2,13 +2,13 @@ use bevy_ecs::prelude::*;
 use bevy_tasks::TaskPool;
 use cgmath::*;
 
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 struct Position(Vector3<f32>);
 
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 struct Rotation(Vector3<f32>);
 
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 struct Velocity(Vector3<f32>);
 
 pub struct Benchmark(World);

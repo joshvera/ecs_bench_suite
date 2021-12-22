@@ -1,24 +1,24 @@
 use hecs::{serialize::column::*, *};
 use serde::{de::SeqAccess, ser::SerializeTuple, Deserialize, Serialize};
 
-#[derive(Default, Copy, Clone, Serialize, Deserialize)]
+#[derive(Default, Clone, Copy, Serialize, Deserialize)]
 struct Transform([f32; 16]);
 
-#[derive(Default, Copy, Clone, Serialize, Deserialize)]
+#[derive(Default, Clone, Copy, Serialize, Deserialize)]
 struct Position {
     x: f32,
     y: f32,
     z: f32,
 }
 
-#[derive(Default, Copy, Clone, Serialize, Deserialize)]
+#[derive(Default, Clone, Copy, Serialize, Deserialize)]
 struct Rotation {
     x: f32,
     y: f32,
     z: f32,
 }
 
-#[derive(Default, Copy, Clone, Serialize, Deserialize)]
+#[derive(Default, Clone, Copy, Serialize, Deserialize)]
 struct Velocity {
     x: f32,
     y: f32,
@@ -27,7 +27,7 @@ struct Velocity {
 
 struct SerContext;
 
-#[derive(Serialize, Deserialize, Debug, Copy, Clone)]
+#[derive(Serialize, Deserialize, Debug, Clone, Copy)]
 enum ComponentId {
     Transform,
     Position,
