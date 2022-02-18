@@ -1,4 +1,4 @@
-use sparsey::prelude::*;
+use sparsey2::prelude::*;
 
 struct A(f32);
 struct B(f32);
@@ -11,20 +11,18 @@ impl Benchmark {
         world.register::<A>();
         world.register::<B>();
 
-        let entities = world
-            .create_entities((0..10_000).map(|_| (A(0.0),)))
-            .to_vec();
+        let entities = world.bulk_create((0..10_000).map(|_| (A(0.0),))).to_vec();
 
         Self(world, entities)
     }
 
     pub fn run(&mut self) {
         for &entity in &self.1 {
-            self.0.insert_components(entity, (B(0.0),)).unwrap();
+            self.0.insert(entity, (B(0.0),));
         }
 
         for &entity in &self.1 {
-            self.0.delete_components::<(B,)>(entity);
+            self.0.delete::<(B,)>(entity);
         }
     }
 }

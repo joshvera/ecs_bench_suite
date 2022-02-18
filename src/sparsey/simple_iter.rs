@@ -1,5 +1,5 @@
 use cgmath::*;
-use sparsey::prelude::*;
+use sparsey2::prelude::*;
 
 #[derive(Clone, Copy)]
 struct Transform(Matrix4<f32>);
@@ -23,7 +23,7 @@ impl Benchmark {
         world.register::<Rotation>();
         world.register::<Velocity>();
 
-        world.create_entities((0..10_000).map(|_| {
+        world.bulk_create((0..10_000).map(|_| {
             (
                 Transform(Matrix4::<f32>::from_angle_x(Rad(1.2))),
                 Position(Vector3::unit_x()),
@@ -36,12 +36,11 @@ impl Benchmark {
     }
 
     pub fn run(&mut self) {
-        let (mut positions, velocities) = self.0.borrow::<(CompMut<Position>, Comp<Velocity>)>();
+        let mut positions = self.0.borrow_mut::<Position>();
+        let velocities = self.0.borrow::<Velocity>();
 
-        (&mut positions, &velocities)
-            .iter()
-            .for_each(|(mut position, velocity)| {
-                position.0 += velocity.0;
-            });
+        (&mut positions, &velocities).for_each(|(position, velocity)| {
+            position.0 += velocity.0;
+        });
     }
 }

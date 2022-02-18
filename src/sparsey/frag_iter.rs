@@ -1,11 +1,11 @@
-use sparsey::prelude::*;
+use sparsey2::prelude::*;
 
 macro_rules! create_entities {
     ($world:ident; $($variant:ident),*) => {
         $(
             struct $variant(f32);
             $world.register::<$variant>();
-            $world.create_entities((0..20).map(|_| ($variant(0.0), Data(0.0))));
+            $world.bulk_create((0..20).map(|_| ($variant(0.0), Data(0.0))));
         )*
     };
 }
@@ -24,9 +24,9 @@ impl Benchmark {
     }
 
     pub fn run(&mut self) {
-        let mut data = self.0.borrow::<CompMut<Data>>();
+        let mut data = self.0.borrow_mut::<Data>();
 
-        (&mut data).iter().for_each(|mut data| {
+        (&mut data).iter().for_each(|data| {
             data.0 *= 2.0;
         });
     }

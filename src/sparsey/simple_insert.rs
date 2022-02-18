@@ -1,5 +1,5 @@
 use cgmath::*;
-use sparsey::prelude::*;
+use sparsey2::prelude::*;
 
 #[derive(Clone, Copy)]
 struct Transform(Matrix4<f32>);
@@ -27,7 +27,7 @@ impl Benchmark {
         world.register::<Rotation>();
         world.register::<Velocity>();
 
-        world.create_entities((0..10_000).map(|_| {
+        world.bulk_create((0..10_000).map(|_| {
             (
                 Transform(Matrix4::<f32>::from_scale(1.0)),
                 Position(Vector3::unit_x()),
