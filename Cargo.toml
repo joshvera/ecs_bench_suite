@@ -8,8 +8,8 @@ authors = [
 edition = "2021"
 
 [dependencies]
-bevy_ecs = "0.5"
-bevy_tasks = "0.5"
+bevy_ecs = "0.6"
+bevy_tasks = "0.6"
 bincode = "1.3"
 cgmath = { version = "0.18", features = ["serde"] }
 hecs = { version = "0.7", features = ["column-serialize", "row-serialize"] }
