@@ -1,5 +1,5 @@
 use cgmath::*;
-use sparsey2::prelude::*;
+use sparsey::prelude::*;
 
 #[derive(Clone, Copy)]
 struct Transform(Matrix4<f32>);

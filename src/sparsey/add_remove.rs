@@ -1,4 +1,4 @@
-use sparsey2::prelude::*;
+use sparsey::prelude::*;
 
 struct A(f32);
 struct B(f32);

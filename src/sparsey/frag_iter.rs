@@ -1,4 +1,4 @@
-use sparsey2::prelude::*;
+use sparsey::prelude::*;
 
 macro_rules! create_entities {
     ($world:ident; $($variant:ident),*) => {
