@@ -45,9 +45,9 @@ impl Benchmark {
 
         let mut schedule = Schedule::default();
         schedule.add_stage("main", SystemStage::parallel());
-        schedule.add_system_to_stage("main", ab.system());
-        schedule.add_system_to_stage("main", cd.system());
-        schedule.add_system_to_stage("main", ce.system());
+        schedule.add_system_to_stage("main", ab);
+        schedule.add_system_to_stage("main", cd);
+        schedule.add_system_to_stage("main", ce);
 
         Self(world, schedule)
     }
