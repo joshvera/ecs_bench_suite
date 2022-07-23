@@ -1,4 +1,5 @@
 use hecs::{serialize::row::*, *};
+use ron::Options;
 use serde::{de::MapAccess, ser::SerializeMap, Deserialize, Serialize};
 
 #[derive(Default, Clone, Copy, Serialize, Deserialize)]
@@ -104,7 +105,7 @@ impl Benchmark {
         serialize(
             world,
             &mut SerContext,
-            &mut ron::Serializer::new(&mut encoded, None, false).unwrap(),
+            &mut ron::Serializer::with_options(&mut encoded, None, Options::default()).unwrap(),
         )
         .unwrap();
         deserialize(
