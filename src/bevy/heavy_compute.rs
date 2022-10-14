@@ -1,4 +1,5 @@
 use bevy_ecs::prelude::*;
+use bevy_tasks::{ComputeTaskPool, TaskPool};
 use cgmath::*;
 
 #[derive(Clone, Copy, Component)]
@@ -27,6 +28,8 @@ impl Benchmark {
                 Velocity(Vector3::unit_x()),
             )
         }));
+
+        ComputeTaskPool::init(TaskPool::new);
 
         Self(world)
     }
