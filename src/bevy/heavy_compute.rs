@@ -1,5 +1,4 @@
 use bevy_ecs::prelude::*;
-use bevy_tasks::TaskPool;
 use cgmath::*;
 
 #[derive(Clone, Copy, Component)]
@@ -33,10 +32,9 @@ impl Benchmark {
     }
 
     pub fn run(&mut self) {
-        let task_pool = TaskPool::new();
         let mut query = self.0.query::<(&mut Position, &mut Matrix)>();
 
-        query.par_for_each_mut(&mut self.0, &task_pool, 64, |(mut pos, mut mat)| {
+        query.par_for_each_mut(&mut self.0, 64, |(mut pos, mut mat)| {
             for _ in 0..100 {
                 mat.0 = mat.0.invert().unwrap();
             }
