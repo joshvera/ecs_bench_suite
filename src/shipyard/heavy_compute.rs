@@ -54,7 +54,7 @@ impl Benchmark {
             |mut positions: ViewMut<Position>, mut transforms: ViewMut<Transform>| {
                 (&mut positions, &mut transforms)
                     .par_iter()
-                    .for_each(|(mut pos, mut mat)| {
+                    .for_each(|(pos, mat)| {
                         for _ in 0..100 {
                             mat.0 = mat.0.invert().unwrap();
                         }

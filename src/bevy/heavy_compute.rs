@@ -37,12 +37,14 @@ impl Benchmark {
     pub fn run(&mut self) {
         let mut query = self.0.query::<(&mut Position, &mut Matrix)>();
 
-        query.par_for_each_mut(&mut self.0, 64, |(mut pos, mut mat)| {
-            for _ in 0..100 {
-                mat.0 = mat.0.invert().unwrap();
-            }
+        query
+            .par_iter_mut(&mut self.0)
+            .for_each_mut(|(mut pos, mut mat)| {
+                for _ in 0..100 {
+                    mat.0 = mat.0.invert().unwrap();
+                }
 
-            pos.0 = mat.0.transform_vector(pos.0);
-        });
+                pos.0 = mat.0.transform_vector(pos.0);
+            });
     }
 }

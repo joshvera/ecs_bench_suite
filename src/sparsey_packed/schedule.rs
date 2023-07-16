@@ -54,7 +54,7 @@ impl Benchmark {
             .build();
 
         let thread_pool = ThreadPoolBuilder::new()
-            .num_threads(schedule.max_threads())
+            .num_threads(schedule.max_parallelism())
             .build()
             .unwrap();
 
