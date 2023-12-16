@@ -16,7 +16,7 @@ hecs = { version = "0.10", features = ["column-serialize", "row-serialize"] }
 legion = "0.4"
 planck_ecs = { version = "1.2", features = ["parallel"] }
 rayon = "1.8"
-ron = "0.8"
+ron = "0.8.1"
 serde = { version = "1.0", features = ["derive"] }
 shipyard = "0.6"
 sparsey = "0.11.1"
