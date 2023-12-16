@@ -14,14 +14,14 @@ macro_rules! benchmark {
     };
 }
 
-benchmark!(add_remove; bevy, hecs, legion, planck_ecs, shipyard, sparsey, specs);
-benchmark!(frag_iter; bevy, hecs, legion, planck_ecs, shipyard, sparsey, specs);
-benchmark!(heavy_compute; bevy, legion, legion_packed, shipyard, specs);
-benchmark!(schedule; bevy, legion, legion_packed, planck_ecs, shipyard, sparsey, sparsey_packed, specs);
+benchmark!(add_remove; bevy, bevy_sparse_set, hecs, legion, planck_ecs, shipyard, sparsey, specs);
+benchmark!(frag_iter; bevy, bevy_sparse_set, hecs, legion, planck_ecs, shipyard, sparsey, specs);
+benchmark!(heavy_compute; bevy, bevy_sparse_set, legion, legion_packed, shipyard, specs);
+benchmark!(schedule; bevy, bevy_sparse_set, legion, legion_packed, planck_ecs, shipyard, sparsey, sparsey_packed, specs);
 benchmark!(serialize_binary; hecs);
 benchmark!(serialize_text; hecs);
-benchmark!(simple_insert; bevy, hecs, legion, planck_ecs, shipyard, sparsey, specs);
-benchmark!(simple_iter; bevy, hecs, legion, legion_packed, planck_ecs, shipyard, sparsey, sparsey_packed, specs);
+benchmark!(simple_insert; bevy, bevy_sparse_set, hecs, legion, planck_ecs, shipyard, sparsey, specs);
+benchmark!(simple_iter; bevy, bevy_sparse_set, hecs, legion, legion_packed, planck_ecs, shipyard, sparsey, sparsey_packed, specs);
 
 criterion_group!(
     benchmarks,
