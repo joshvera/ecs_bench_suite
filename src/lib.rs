@@ -2,6 +2,7 @@
 
 pub mod bevy;
 pub mod bevy_sparse_set;
+pub mod brood;
 pub mod hecs;
 pub mod legion;
 pub mod legion_packed;
