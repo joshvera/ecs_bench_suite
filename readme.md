@@ -3,6 +3,12 @@
 A suite of benchmarks designed to test and compare Rust ECS library performance across a variety of challenging circumstances.
 
 
+## Status
+
+The project is now archived - see discussion [here](https://github.com/rust-gamedev/wg/issues/130); summary:
+
+> [The project] arguably went quite well even though it’s not that actively updated; I like to think we collectively realized that speed is only one aspect of an ECS, and a rather small one at that once a baseline of performance has been established.
+
 ## The Benchmarks
 
 ### Simple Insert
